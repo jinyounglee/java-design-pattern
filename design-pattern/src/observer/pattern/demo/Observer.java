@@ -1,13 +1,12 @@
 package observer.pattern.demo;
 
-public class Observer {
+public class Observer implements IObserver{
 
     public Observer() {
     }
 
-    public void update() {
-
-        System.out.println("flag value changed in Subject");
-
+    @Override
+    public void update(String s, int i) {
+        System.out.println("Observer ::: observer -> value is changed in " + s + " to : " + i);
     }
 }

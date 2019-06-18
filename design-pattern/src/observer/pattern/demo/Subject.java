@@ -18,25 +18,31 @@ public class Subject implements ISubsect{
 
         this._flag = _flag;
 
-        notifyObservers();
+        notifyObservers(_flag);
     }
 
-    List<Observer> observerList = new ArrayList<Observer>();
+    List<IObserver> observerList = new ArrayList<IObserver>();
 
     @Override
-    public void register(Observer o) {
+    public void register(IObserver o) {
         observerList.add(o);
     }
 
     @Override
-    public void unregister(Observer o) {
+    public void unregister(IObserver o) {
         observerList.remove(o);
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(int value) {
         for(int i=0;i<observerList.size();i++) {
-            observerList.get(i).update();
+
+            System.out.println("just className : " + this.getClass().getName());
+            System.out.println("just simpleName : " + this.getClass().getSimpleName());
+            System.out.println("just canonicalName : " + this.getClass().getCanonicalName());
+            System.out.println("just packageName : " + this.getClass().getPackageName());
+
+            observerList.get(i).update(this.getClass().getSimpleName(), value);
         }
     }
 }

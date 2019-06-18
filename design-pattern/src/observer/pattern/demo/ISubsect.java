@@ -2,11 +2,11 @@ package observer.pattern.demo;
 
 public interface ISubsect {
 
-    void register(Observer observer);
+    void register(IObserver o);
 
-    void unregister(Observer observer);
+    void unregister(IObserver o);
 
-    void notifyObservers();
+    void notifyObservers(int i);
 }
 
 
